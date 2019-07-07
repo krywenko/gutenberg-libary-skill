@@ -9,11 +9,26 @@ usage .
  read book peter pan ----
  stop reading book ----
  continue reading book   ---
+ go to chapter 20  ----
  
  cat gutenberg-library-skill.tar.gz.parta* >backup.tar.gz.joined
 then tar -zxf backup.tar.gz.joined
  
 then lastly uncompress   it  ie tar -zxf gutenberg-library-skill.tar.gz
+
+it will attempt to automatically  determine  the chapters
+
+but if it can not you can manually set chapters
+
+ just place cvs  line of your chapter line  between headers ad the end of the book
+ 
+ ######CHAPTERS######
+ 
+ 3,30,100,500,1000
+ 
+ ######END######
+ 
+ if you edit a book that was automatically  chaptered just run ./chapter and the name of the book file to rechapter the book
 
 the public domain books included are
 
