@@ -2,7 +2,18 @@
 
 gutenberg library skill for mycroft. is an ebook reader for mycroft that can download files from  gutenbrg websight..
 it is a compressed file as i have have top ~100 public domain books install.. which is not so big at +50 megs compressed to 19m
-it not limited to just gutenberg ebooks  just drop any texted base book  is add it to the play list
+if you wish to download other gutenberg book  fust use ./gutesingle weblink to txt file
+
+ie\; ./gutesingle https://www.gutenberg.org/ebooks/159.txt.utf-8
+
+
+it not limited to just gutenberg ebooks  if you place your book ina web dir  and set the top header of your book file with this
+
+
+*** START OF THIS PROJECT GUTENBERG EBOOK THE NAME OF YOUR BOOK ***
+
+it will automatically process the book ito a usable format for Mycroft and chapterize it if  the Chapter title  are captitiled 
+ie CHAPTER
 
 usage .
  random book---
