@@ -31,7 +31,7 @@ it will attempt to automatically  determine  the chapters
 
 but if it can not you can manually set chapters
 
- just place cvs  line of your chapter line  between headers ad the end of the book
+ just place cvs  line of your chapter line  between headers at the end of the book
  
  ######CHAPTERS######
  
