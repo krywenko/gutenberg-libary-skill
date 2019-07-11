@@ -41,6 +41,8 @@ but if it can not you can manually set chapters
  
  if you edit a book that was automatically  chaptered just run ./chapter and the name of the book file to rechapter the book
 
+pdf2tst will process pdf to text then up load to mycroft library USAGE: pdf2txt "path to pdf" "book name"
+
 the public domain books included are
 
 alice’s adventures in wonderland
