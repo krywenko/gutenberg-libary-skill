@@ -1,6 +1,6 @@
 # gutenberg-library-skill
 
-gutenberg library skill for mycroft. is an ebook reader for mycroft that can download files from  gutenbrg websight..
+gutenberg library skill for mycroft. is an ebook reader for mycroft that can download files from  gutenbrg website..
 it is a compressed file as i have have top ~100 public domain books install.. which is not so big at +50 megs compressed to 19m
 if you wish to download other gutenberg book  fust use ./gutesingle weblink to txt file
 
@@ -41,7 +41,7 @@ but if it can not you can manually set chapters
  
  if you edit a book that was automatically  chaptered just run ./chapter and the name of the book file to rechapter the book
 
-pdf2tst will process pdf to text then up load to mycroft library USAGE: pdf2txt "path to pdf" "book name"
+pdf2txt will process pdf to text then up load to mycroft library USAGE: pdf2txt "path to pdf" "book name"
 
 the public domain books included are
 
