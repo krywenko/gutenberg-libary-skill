@@ -43,7 +43,8 @@ but if it can not you can manually set chapters
 
 pdf2txt will process pdf to text then up load to mycroft library USAGE: pdf2txt "path to pdf" "book name"
 
-the public domain books included are
+the public domain books included are 
+(gutenberg websites has +50000 free books in multiple of languages more language then mycroft can speak) but  you can uplaod books from kindle  just use a kindle to text webtool  save as  pdf or text and upload to mycroft
 
 alice’s adventures in wonderland
 
