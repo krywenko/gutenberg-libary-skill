@@ -1,0 +1,90 @@
+#!/bin/bash
+
+pdftotext $1 $HOME/mycroft-core/skills/gutenberg-library-skill/ebook/tmp/pdftmp.txt
+ 
+FILE="pdftmp.txt"
+FNAME="$( echo $2 )"
+TMP2="$(echo $FNAME | tr "_" " " )"
+TITLE="$(echo $TMP2)"
+echo $TITLE
+echo $FNAME
+
+############ determines if the file valid or not #########
+if [ -z "$TITLE" ]
+then
+      echo "forgot to enter Title of Book  example format peter_pan all lower case "
+else
+
+######### determins if the files in the library ###########
+
+LINE="'$TITLE': join(abspath(dirname(__file__)), 'ebook', '$FNAME'),"
+echo $LINE
+NO_WHITESPACE="$(echo -e "${LINE}" | tr -d '[:space:]')"
+
+DATA="$(grep "'$TITLE': join(abspath(dirname(__file__)), 'ebook', '$FNAME')," $HOME/mycroft-core/skills/gutenberg-library-skill/__init__.py) "
+NO_WHITESPACE1="$(echo -e "${DATA}" | tr -d '[:space:]')"
+echo $DATA
+echo $NO_WHITESPACE
+if [[ $NO_WHITESPACE1 == $NO_WHITESPACE ]]
+   then
+         echo "exist already "
+     else
+################ processes the file in to mycroft usable  format  ###############################     
+cat $HOME/mycroft-core/skills/gutenberg-library-skill/ebook/tmp/$FILE | sed 's/^/ /' | tr -d '\r\n' | sed 's/\. /\n/g' | sed 's/\*\*\* /\n/g' | sed '2d; $d' | sed  's/\CHAPTER\>/######CHAPTER /g' | sed 's/######/\n/g'  | sed  's/\*//g' | sed 's/$/\./'| awk '$NF=="Mr."{printf "%s ", $0} $NF!="Mr."{print $0}' | awk '$NF=="Dr."{printf "%s ", $0} $NF!="Dr."{print $0}' | awk '$NF=="MR."{printf "%s ", $0} $NF!="MR."{print $0}' | awk '$NF=="DR."{printf "%s ", $0} $NF!="DR."{print $0}' | awk '$NF=="Mrs."{printf "%s ", $0} $NF!="Mrs."{print $0}' | awk '$NF=="MRS."{printf "%s ", $0} $NF!="MRS."{print $0}' > $HOME/mycroft-core/skills/gutenberg-library-skill/ebook/$FNAME
+ 
+$HOME/mycroft-core/skills/gutenberg-library-skill/ebook/./chapter $HOME/mycroft-core/skills/gutenberg-library-skill/ebook/$FNAME 
+     
+sed -i "/^        self.play_list = {/a\            $LINE" $HOME/mycroft-core/skills/gutenberg-library-skill/__init__.py
+echo $TITLE >> $HOME/mycroft-core/skills/gutenberg-library-skill/vocab/en-us/title.entity
+
+#echo $TITLE > $HOME/mycroft-core/skills/gutenberg-library-skill/ebook/tmp/$FILE
+
+fi
+fi
+######
+
+#fi
+
+#done  <<< "$input"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
